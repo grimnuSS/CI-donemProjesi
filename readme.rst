@@ -1,4 +1,5 @@
-# CodeIgniter 3 - Internet Programcılığı 2 Dersi Projesi
+### CodeIgniter 3 - Internet Programcılığı 2 Dersi Projesi
+
 ## Proje Tanımı
 Bu depo, CodeIgniter 3 kullanılarak geliştirilmiş olan Internet Programcılığı 2 dersi projesini içermektedir. Proje, users, settings, brands, references, products, product_images, services ve testimonials gibi çeşitli tabloları içermektedir.
 
