@@ -1,71 +1,37 @@
-###################
-What is CodeIgniter
-###################
+# CodeIgniter 3 - Internet Programcılığı 2 Dersi Projesi
+## Proje Tanımı
+Bu depo, CodeIgniter 3 kullanılarak geliştirilmiş olan Internet Programcılığı 2 dersi projesini içermektedir. Proje, users, settings, brands, references, products, product_images, services ve testimonials gibi çeşitli tabloları içermektedir.
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+## CodeIgniter Nedir?
+CodeIgniter, PHP kullanarak web uygulamaları geliştirmek için bir Uygulama Geliştirme Çerçevesi'dir. Geliştiricilere yaygın görevler için zengin bir kütüphane seti sağlayarak, projelerini sıfırdan yazmak yerine daha hızlı bir şekilde geliştirmelerine olanak tanımaktadır. CodeIgniter, basit bir arayüz ve bu kütüphanelere erişim için mantıklı bir yapı sağlayarak, geliştiricilerin projelerinin yaratıcı yönlerine odaklanmalarını sağlar.
 
-*******************
-Release Information
-*******************
+## Sürüm Bilgisi
+Bu depo, gelecekteki sürümler için geliştirilmekte olan kodları içermektedir. En son kararlı sürümü indirmek için lütfen [CodeIgniter İndirme](https://codeigniter.com/download "CodeIgniter İndirme") sayfasını ziyaret edin.
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+## Değişiklik Kaydı ve Yenilikler
+Her sürüm için yapılan değişiklik listesini görmek için [kullanıcı kılavuzu değişiklik kaydına](https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst "kullanıcı kılavuzu değişiklik kaydına") başvurun.
 
-**************************
-Changelog and New Features
-**************************
+## Sunucu Gereksinimleri
+Sunucunuzun aşağıdaki gereksinimlere sahip olduğundan emin olun:
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+PHP sürümü 5.6 veya daha yeni (önerilen)
+PHP 5.3.7 kabul edilebilir ancak güvenlik ve performans sorunları, eksik özellikler nedeniyle önerilmez.
+### Kurulum
+Ayrıntılı kurulum talimatları için [CodeIgniter Kullanıcı Kılavuzu'nun](https://codeigniter.com/userguide3/installation/index.html "CodeIgniter Kullanıcı Kılavuzu")'nun kurulum bölümüne başvurun.
 
-*******************
-Server Requirements
-*******************
+### Lisans
+CodeIgniter'ın lisansı hakkında bilgi almak için [lisans sözleşmesini](https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst "lisans sözleşmesini") okuyun.
 
-PHP version 5.6 or newer is recommended.
+### Kaynaklar
+Yardım ve bilgi için aşağıdaki kaynaklara başvurun:
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+[Kullanıcı Kılavuzu](https://codeigniter.com/docs "Kullanıcı Kılavuzu")
+[Katkıda Bulunma Kılavuzu](https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md "Katkıda Bulunma Kılavuzu")
+[Dil Dosyası Çevirileri](https://github.com/bcit-ci/codeigniter3-translations "Dil Dosyası Çevirileri")
+[Topluluk Forumları](http://forum.codeigniter.com/ "Topluluk Forumları")
+[Topluluk Wiki](https://github.com/bcit-ci/CodeIgniter/wiki "Topluluk Wiki")
+[Topluluk Slack Kanalı](https://codeigniterchat.slack.com/ "Topluluk Slack Kanalı")
+Güvenlik sorunlarını Güvenlik Panelimize, veya [HackerOne](https://hackerone.com/codeigniter "HackerOne") sayfamıza bildirin.
 
-************
-Installation
-************
-
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+### Teşekkür
+CodeIgniter ekibi, EllisLab, CodeIgniter projesine katkıda bulunan tüm kişiler ve CodeIgniter kullanıcılarına teşekkür eder. Desteğiniz ve projede yer almanız için teşekkür ederiz.
