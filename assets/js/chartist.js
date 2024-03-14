@@ -154,7 +154,7 @@
 
 
 
-  //Dashboard Tickets Chart
+  //CDashboard Tickets Chart
   if ($('#ct-chart-dash-barChart').length) {
     new Chartist.Bar('#ct-chart-dash-barChart', {
       labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
@@ -179,7 +179,7 @@
     });
   }
 
-  //dashboard staked bar chart
+  //v_dashboard staked bar chart
   if ($('#ct-chart-vartical-stacked-bar').length) {
     new Chartist.Bar('#ct-chart-vartical-stacked-bar', {
       labels: ['J', 'F', 'M', 'A', 'M', 'J', 'A'],

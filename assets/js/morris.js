@@ -176,9 +176,9 @@ $(function() {
     });
   }
 
-  if ($('#morris-dashboard-taget').length) {
+  if ($('#morris-v_dashboard-taget').length) {
     Morris.Area({
-      element: 'morris-dashboard-taget',
+      element: 'morris-v_dashboard-taget',
       parseTime: false,
       lineColors: ['#76C1FA', '#F36368', '#63CF72', '#FABA66'],
       data: [{
