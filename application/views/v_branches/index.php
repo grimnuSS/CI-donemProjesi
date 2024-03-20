@@ -17,7 +17,7 @@
 			<div class="content-wrapper">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Markalar</h4>
+						<h4 class="card-title">Şubeler</h4>
 						<div class="row">
 							<div class="col-12">
 								<div class="table-responsive">
@@ -54,23 +54,13 @@
 														</th>
 														<th class="sorting" tabindex="0" aria-controls="order-listing"
 															rowspan="1" colspan="1"
-															aria-label="Resim Linki: activate to sort column ascending"
-															style="width: 174.75px;">Resim Linki
+															aria-label="Şube Adı: activate to sort column ascending"
+															style="width: 174.75px;">Şube Adı
 														</th>
 														<th class="sorting" tabindex="0" aria-controls="order-listing"
 															rowspan="1" colspan="1"
-															aria-label="Başlık: activate to sort column ascending"
-															style="width: 130.109px;">Başlık
-														</th>
-														<th class="sorting" tabindex="0" aria-controls="order-listing"
-															rowspan="1" colspan="1"
-															aria-label="Sıra: activate to sort column ascending"
-															style="width: 130.109px;">Sıra
-														</th>
-														<th class="sorting" tabindex="0" aria-controls="order-listing"
-															rowspan="1" colspan="1"
-															aria-label="Durum: activate to sort column ascending"
-															style="width: 130.109px;">Durum
+															aria-label="Şube Adresi: activate to sort column ascending"
+															style="width: 130.109px;">Şube Adresi
 														</th>
 														<th class="sorting" tabindex="0" aria-controls="order-listing"
 															rowspan="1" colspan="1"
@@ -85,16 +75,12 @@
 													</tr>
 													</thead>
 													<tbody>
-													<?php foreach ($brands as $brand) { ?>
+													<?php foreach ($branches as $branch) { ?>
 														<tr class="odd">
-															<td class="sorting_1"><?php echo $brand->id; ?></td>
-															<td><?php echo $brand->img_url; ?></td>
-															<td><?php echo $brand->title; ?></td>
-															<td><?php echo $brand->rank; ?></td>
-															<td>
-																<label class="badge badge-info"><?php echo $brand->is_active==0 ? "Pasif" : "Aktif"; ?></label>
-															</td>
-															<td><?php echo $brand->created_at; ?></td>
+															<td class="sorting_1"><?php echo $branch->id; ?></td>
+															<td><?php echo $branch->title; ?></td>
+															<td><?php echo $branch->address; ?></td>
+															<td><?php echo $branch->created_at; ?></td>
 															<td>
 																<button class="btn btn-outline-primary">Sil</button>
 																<button class="btn btn-outline-primary">Düzenle</button>

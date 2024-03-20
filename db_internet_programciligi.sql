@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 14 Mar 2024, 10:59:13
+-- Üretim Zamanı: 20 Mar 2024, 14:19:48
 -- Sunucu sürümü: 8.0.31
 -- PHP Sürümü: 8.0.26
 
@@ -20,6 +20,42 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `db_internet_programciligi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `branches`
+--
+
+DROP TABLE IF EXISTS `branches`;
+CREATE TABLE IF NOT EXISTS `branches` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `branches`
+--
+
+INSERT INTO `branches` (`id`, `title`, `address`, `created_at`) VALUES
+(1, 'Şube 1', 'X, Y Mah. 1 Sokak.', '2024-03-20 14:17:49');
+
+--
+-- Tetikleyiciler `branches`
+--
+DROP TRIGGER IF EXISTS `branches_delete`;
+DELIMITER $$
+CREATE TRIGGER `branches_delete` BEFORE DELETE ON `branches` FOR EACH ROW INSERT INTO log_branches (created_at, log_type, user_id, old_id, old_title, old_address) VALUES (NOW(), "BRANCHES DELETE", "1", OLD.id, OLD.title, OLD.address)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `branches_update`;
+DELIMITER $$
+CREATE TRIGGER `branches_update` BEFORE UPDATE ON `branches` FOR EACH ROW INSERT INTO log_branches (created_at, log_type, user_id, old_id, old_title, old_address) VALUES (NOW(), "BRANCHES UPDATE", "1", OLD.id, OLD.title, OLD.address)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -51,6 +87,24 @@ DELIMITER $$
 CREATE TRIGGER `brands_update` BEFORE UPDATE ON `brands` FOR EACH ROW INSERT INTO log_brands (created_at, log_type, user_id, old_id, old_img_url, old_title, old_rank, old_is_active) VALUES (NOW(), "BRANDS UPDATE", "1", OLD.id, OLD.img_url, OLD.title, OLD.rank, OLD.is_active)
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `log_branches`
+--
+
+DROP TABLE IF EXISTS `log_branches`;
+CREATE TABLE IF NOT EXISTS `log_branches` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `log_type` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `old_id` int NOT NULL,
+  `old_title` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `old_address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -106,6 +160,24 @@ CREATE TABLE IF NOT EXISTS `log_products` (
 
 INSERT INTO `log_products` (`id`, `created_at`, `log_type`, `user_id`, `old_id`, `old_img_url`, `old_title`, `old_description`, `old_rank`, `old_is_active`) VALUES
 (0, '2024-03-14 10:31:37', 'PRODUCTS UPDATE', 1, 1, 'deneme', 'deneme', 'deneme', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `log_product_categories`
+--
+
+DROP TABLE IF EXISTS `log_product_categories`;
+CREATE TABLE IF NOT EXISTS `log_product_categories` (
+  `id` int NOT NULL,
+  `created_at` int NOT NULL,
+  `log_type` int NOT NULL,
+  `user_id` int NOT NULL,
+  `old_id` int NOT NULL,
+  `old_title` int NOT NULL,
+  `old_is_active` int NOT NULL,
+  `old_created_at` int NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -288,6 +360,43 @@ DELIMITER ;
 DROP TRIGGER IF EXISTS `products_update`;
 DELIMITER $$
 CREATE TRIGGER `products_update` BEFORE UPDATE ON `products` FOR EACH ROW INSERT INTO log_products (created_at, log_type, user_id, old_id, old_img_url, old_title, old_description, old_rank, old_is_active) VALUES (NOW(), "PRODUCTS UPDATE", "1", OLD.id, OLD.img_url, OLD.title, OLD.description, OLD.rank, OLD.is_active)
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `product_categories`
+--
+
+DROP TABLE IF EXISTS `product_categories`;
+CREATE TABLE IF NOT EXISTS `product_categories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `is_active` tinyint NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `product_categories`
+--
+
+INSERT INTO `product_categories` (`id`, `title`, `is_active`, `created_at`) VALUES
+(1, 'İçecekler', 1, '2024-03-14 11:26:00'),
+(2, 'Kebaplar', 1, '2024-03-14 11:26:00');
+
+--
+-- Tetikleyiciler `product_categories`
+--
+DROP TRIGGER IF EXISTS `product_categories_delete`;
+DELIMITER $$
+CREATE TRIGGER `product_categories_delete` BEFORE DELETE ON `product_categories` FOR EACH ROW INSERT INTO log_product_categories (created_at, log_type, user_id, old_id, old_title, old_is_active, old_created_at) VALUES (NOW(), "PRODUCT_CATEGORIES DELETED", "1", OLD.id, OLD.title, OLD.is_active, OLD.created_at)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `product_categories_update`;
+DELIMITER $$
+CREATE TRIGGER `product_categories_update` BEFORE UPDATE ON `product_categories` FOR EACH ROW INSERT INTO log_product_categories (created_at, log_type, user_id, old_id, old_title, old_is_active, old_created_at) VALUES (NOW(), "PRODUCT_CATEGORIES UPDATE", "1", OLD.id, OLD.title, OLD.is_active, OLD.created_at)
 $$
 DELIMITER ;
 

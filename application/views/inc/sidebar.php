@@ -7,6 +7,12 @@
 			</a>
 		</li>
 		<li class="nav-item">
+			<a class="nav-link" href="<?php echo base_url("Branches/index")?>">
+				<i class="icon-paper menu-icon"></i>
+				<span class="menu-title">Şubeler</span>
+			</a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link" href="<?php echo base_url("Brands/index")?>">
 				<i class="icon-paper menu-icon"></i>
 				<span class="menu-title">Markalar</span>
