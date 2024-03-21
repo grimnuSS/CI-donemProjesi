@@ -1,24 +1,39 @@
-	<!-- partial:partials/_navbar.html -->
-	<?php $this->load->view("inc/navbar"); ?>
+<!-- partial:partials/_navbar.html -->
+<?php $this->load->view("inc/navbar"); ?>
+<!-- partial -->
+
+<div class="container-fluid page-body-wrapper">
+	<!-- partial:partials/_settings-panel.html -->
+	<?php $this->load->view("inc/settings_panel"); ?>
+
+	<!-- partial -->
+	<!-- partial:partials/_sidebar.html -->
+	<?php $this->load->view("inc/sidebar"); ?>
 	<!-- partial -->
 
-	<div class="container-fluid page-body-wrapper">
-		<!-- partial:partials/_settings-panel.html -->
-		<?php $this->load->view("inc/settings_panel"); ?>
-
-		<!-- partial -->
-		<!-- partial:partials/_sidebar.html -->
-		<?php $this->load->view("inc/sidebar"); ?>
-		<!-- partial -->
-
-		<div class="main-panel">
-			<!-- content-wrapper ends -->
-			<div class="content-wrapper">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title">Ayarlar</h4>
-						<div class="row">
-							<div class="col-12">
+	<div class="main-panel">
+		<!-- content-wrapper ends -->
+		<div class="content-wrapper">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title"><?php echo $branch->title; ?> Şube'si Düzenleniyor</h4>
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-body">
+									<form class="forms-sample" action="<?php echo base_url("Branches/update/".$branch->id)?>" method="POST">
+										<div class="form-group">
+											<label for="title">İsim</label>
+											<input type="text" class="form-control" id="title" name="title" value="<?php echo $branch->title; ?>" placeholder="İsim">
+										</div>
+										<div class="form-group">
+											<label for="address">Adres</label>
+											<input type="text" class="form-control" id="address" name="address" value="<?php echo $branch->address; ?>" placeholder="Adres">
+										</div>
+										<button type="submit" class="btn btn-primary me-2">Kaydet</button>
+										<a href="<?php echo base_url("Branches/index")?>" class="btn btn-light">İptal Et</a>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>

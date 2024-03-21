@@ -35,10 +35,7 @@
 														</select> veri</label></div>
 											</div>
 											<div class="col-sm-12 col-md-6">
-												<div id="order-listing_filter" class="dataTables_filter"><label><input
-															type="search" class="form-control" placeholder="Ara"
-															aria-controls="order-listing"></label>
-												</div>
+												<a href="<?php echo base_url("Users/new_form")?>" class="btn btn-outline-primary form-control">Ekle</a>
 											</div>
 										</div>
 										<div class="row dt-row">
@@ -102,8 +99,8 @@
 																<label class="badge badge-info"><?php echo $user->is_active==0 ? "Pasif" : "Aktif"; ?></label>
 															</td>
 															<td>
-																<button class="btn btn-outline-primary">Sil</button>
-																<button class="btn btn-outline-primary">Düzenle</button>
+																<a href="<?php echo base_url("Users/delete/" . $user->id)?>" class="btn btn-light">Sil</a>
+																<a href="<?php echo base_url("Users/update_form/" . $user->id)?>" class="btn btn-light">Düzenle</a>
 															</td>
 														</tr>
 													<?php } ?>
