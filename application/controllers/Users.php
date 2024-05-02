@@ -17,7 +17,19 @@ class Users extends CI_Controller {
 		$this->load->view('v_users/new_form');
 	}
 	public function save(){
-
+		$data = array(
+			"img_url" => "1",
+			"email" => $this->input->post('email'),
+			"name" => $this->input->post('name'),
+			"surname" => $this->input->post('surname'),
+			"password" => password_hash($this->input->post('password'), PASSWORD_BCRYPT)
+		);
+		$insert = $this->M_Users->save($data);
+		if ($insert) {
+			redirect('/Users/index', 'refresh');
+		} else {
+			echo "Eklenemedi";
+		}
 	}
 	public function update_form($id){
 		$data['user'] = $this->M_Users->get(array(
@@ -26,7 +38,23 @@ class Users extends CI_Controller {
 		$this->load->view('v_users/update_form', $data);
 	}
 	public function update($id){
+		$data = array(
+			"img_url" => "1",
+			"email" => $this->input->post('email'),
+			"name" => $this->input->post('name'),
+			"surname" => $this->input->post('surname'),
+			"password" => password_hash($this->input->post('password'), PASSWORD_BCRYPT)
+		);
 
+		$where = array('id' => $id);
+		$this->db->where($where);
+		$update = $this->db->update('users', $data);
+
+		if ($update) {
+			redirect('/Users/index', 'refresh');
+		} else {
+			echo "Güncellenemedi";
+		}
 	}
 	public function delete($id)
 	{
@@ -40,3 +68,9 @@ class Users extends CI_Controller {
 		}
 	}
 }
+
+/* Controller kısmı önemli;
+ *
+ *
+ *
+ * */

@@ -21,17 +21,21 @@
 						<div class="col-12">
 							<div class="card">
 								<div class="card-body">
-									<form class="forms-sample" action="<?php echo base_url("Branches/save")?>" method="POST">
+									<form class="forms-sample" action="<?php echo base_url("Brands/save")?>" method="POST">
 										<div class="form-group">
-											<label for="title">İsim</label>
-											<input type="text" class="form-control" id="title" name="title" placeholder="İsim">
+											<label for="title">Resim Linki</label>
+											<input type="file" class="form-control" id="img_url" name="img_url" placeholder="Resim Linki">
 										</div>
 										<div class="form-group">
-											<label for="address">Adres</label>
-											<input type="text" class="form-control" id="address" name="address" placeholder="Adres">
+											<label for="address">Başlık</label>
+											<input type="text" class="form-control" id="title" name="title" placeholder="Başlık">
+										</div>
+										<div class="form-group">
+											<label for="address">Seviye</label>
+											<input type="text" class="form-control" id="rank" name="rank" placeholder="Seviye">
 										</div>
 										<button type="submit" class="btn btn-primary me-2">Kaydet</button>
-										<a href="<?php echo base_url("Branches/index")?>" class="btn btn-light">İptal Et</a>
+										<a href="<?php echo base_url("Brands/index")?>" class="btn btn-light">İptal Et</a>
 									</form>
 								</div>
 							</div>

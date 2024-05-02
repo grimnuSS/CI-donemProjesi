@@ -16,22 +16,34 @@
 		<div class="content-wrapper">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">Şube Ekle</h4>
+					<h4 class="card-title">Kullanıcı Ekle</h4>
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
 								<div class="card-body">
-									<form class="forms-sample" action="<?php echo base_url("Branches/save")?>" method="POST">
+									<form class="forms-sample" action="<?php echo base_url("Users/save")?>" method="POST">
+										<div class="form-group">
+											<label for="title">Resim</label>
+											<input type="file" class="form-control" id="img_url" name="img_url" placeholder="Resim">
+										</div>
+										<div class="form-group">
+											<label for="title">E-Posta</label>
+											<input type="email" class="form-control" id="email" name="email" placeholder="E-Posta">
+										</div>
 										<div class="form-group">
 											<label for="title">İsim</label>
-											<input type="text" class="form-control" id="title" name="title" placeholder="İsim">
+											<input type="text" class="form-control" id="name" name="name" placeholder="İsim">
 										</div>
 										<div class="form-group">
-											<label for="address">Adres</label>
-											<input type="text" class="form-control" id="address" name="address" placeholder="Adres">
+											<label for="title">Soyisim</label>
+											<input type="text" class="form-control" id="surname" name="surname" placeholder="Soyisim">
+										</div>
+										<div class="form-group">
+											<label for="address">Şifre</label>
+											<input type="password" class="form-control" id="password" name="password" placeholder="Şifre">
 										</div>
 										<button type="submit" class="btn btn-primary me-2">Kaydet</button>
-										<a href="<?php echo base_url("Branches/index")?>" class="btn btn-light">İptal Et</a>
+										<a href="<?php echo base_url("Users/index")?>" class="btn btn-light">İptal Et</a>
 									</form>
 								</div>
 							</div>

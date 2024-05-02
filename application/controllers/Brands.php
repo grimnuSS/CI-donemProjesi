@@ -17,6 +17,17 @@ class Brands extends CI_Controller {
 		$this->load->view('v_brands/new_form');
 	}
 	public function save(){
+		$data = array(
+			"img_url" => "1",
+			"title" => $this->input->post('title'),
+			"rank" => $this->input->post('rank')
+		);
+		$insert = $this->M_Brands->save($data);
+		if ($insert) {
+			redirect('/Brands/index', 'refresh');
+		} else {
+			echo "Eklenemedi";
+		}
 
 	}
 	public function update_form($id){
@@ -26,7 +37,21 @@ class Brands extends CI_Controller {
 		$this->load->view('v_brands/update_form', $data);
 	}
 	public function update($id){
+		$data = array(
+			"img_url" => "1",
+			"title" => $this->input->post('title'),
+			"rank" => $this->input->post('rank')
+		);
 
+		$where = array('id' => $id);
+		$this->db->where($where);
+		$update = $this->db->update('brands', $data);
+
+		if ($update) {
+			redirect('/Brands/index', 'refresh');
+		} else {
+			echo "Güncellenemedi";
+		}
 	}
 	public function delete($id)
 	{

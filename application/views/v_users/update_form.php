@@ -16,22 +16,34 @@
 		<div class="content-wrapper">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title"><?php echo $branch->title; ?> Şube'si Düzenleniyor</h4>
+					<h4 class="card-title"><?php echo $user->name." ".$user->surname; ?> Kullanıcı'sı Düzenleniyor</h4>
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
 								<div class="card-body">
-									<form class="forms-sample" action="<?php echo base_url("Branches/update/".$branch->id)?>" method="POST">
+									<form class="forms-sample" action="<?php echo base_url("Users/update/".$user->id)?>" method="POST">
+										<div class="form-group">
+											<label for="title">Resim <?php echo $user->img_url; ?></label>
+											<input type="file" class="form-control" id="img_url" name="img_url" placeholder="Resim">
+										</div>
+										<div class="form-group">
+											<label for="title">E-Posta</label>
+											<input type="email" class="form-control" id="email" name="email" placeholder="E-Posta" value="<?php echo $user->email; ?>">
+										</div>
 										<div class="form-group">
 											<label for="title">İsim</label>
-											<input type="text" class="form-control" id="title" name="title" value="<?php echo $branch->title; ?>" placeholder="İsim">
+											<input type="text" class="form-control" id="name" name="name" placeholder="İsim" value="<?php echo $user->name; ?>">
 										</div>
 										<div class="form-group">
-											<label for="address">Adres</label>
-											<input type="text" class="form-control" id="address" name="address" value="<?php echo $branch->address; ?>" placeholder="Adres">
+											<label for="title">Soyisim</label>
+											<input type="text" class="form-control" id="surname" name="surname" placeholder="Soyisim" value="<?php echo $user->surname; ?>">
+										</div>
+										<div class="form-group">
+											<label for="address">Şifre</label>
+											<input type="password" class="form-control" id="password" name="password" placeholder="Şifre">
 										</div>
 										<button type="submit" class="btn btn-primary me-2">Kaydet</button>
-										<a href="<?php echo base_url("Branches/index")?>" class="btn btn-light">İptal Et</a>
+										<a href="<?php echo base_url("Users/index")?>" class="btn btn-light">İptal Et</a>
 									</form>
 								</div>
 							</div>

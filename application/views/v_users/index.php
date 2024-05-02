@@ -71,11 +71,6 @@
 														</th>
 														<th class="sorting" tabindex="0" aria-controls="order-listing"
 															rowspan="1" colspan="1"
-															aria-label="Parola: activate to sort column ascending"
-															style="width: 174.75px;">Parola
-														</th>
-														<th class="sorting" tabindex="0" aria-controls="order-listing"
-															rowspan="1" colspan="1"
 															aria-label="Durum: activate to sort column ascending"
 															style="width: 130.109px;">Durum
 														</th>
@@ -94,7 +89,6 @@
 															<td><?php echo $user->email; ?></td>
 															<td><?php echo $user->name; ?></td>
 															<td><?php echo $user->surname; ?></td>
-															<td><?php echo $user->password; ?></td>
 															<td>
 																<label class="badge badge-info"><?php echo $user->is_active==0 ? "Pasif" : "Aktif"; ?></label>
 															</td>
