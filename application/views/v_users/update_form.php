@@ -28,20 +28,44 @@
 										</div>
 										<div class="form-group">
 											<label for="title">E-Posta</label>
-											<input type="email" class="form-control" id="email" name="email" placeholder="E-Posta" value="<?php echo $user->email; ?>">
+											<input type="hidden" name="old-email" value="<?php echo $user->email; ?>">
+											<input type="email" class="form-control" id="email" name="email" placeholder="E-Posta" value="<?php echo isset($formError) ? set_value("email") : $user->email; ?>">
 										</div>
+										<?php if (isset($formError)) { ?>
+											<small><?php echo form_error("email"); ?></small>
+										<?php } ?>
+
 										<div class="form-group">
 											<label for="title">İsim</label>
-											<input type="text" class="form-control" id="name" name="name" placeholder="İsim" value="<?php echo $user->name; ?>">
+											<input type="text" class="form-control" id="name" name="name" placeholder="İsim" value="<?php echo isset($formError) ? set_value("name") :  $user->name; ?>">
 										</div>
+										<?php if (isset($formError)) { ?>
+											<small><?php echo form_error("name"); ?></small>
+										<?php } ?>
+
 										<div class="form-group">
 											<label for="title">Soyisim</label>
-											<input type="text" class="form-control" id="surname" name="surname" placeholder="Soyisim" value="<?php echo $user->surname; ?>">
+											<input type="text" class="form-control" id="surname" name="surname" placeholder="Soyisim" value="<?php echo isset($formError) ? set_value("surname") :  $user->surname; ?>">
 										</div>
+										<?php if (isset($formError)) { ?>
+											<small><?php echo form_error("surname"); ?></small>
+										<?php } ?>
+
 										<div class="form-group">
 											<label for="address">Şifre</label>
-											<input type="password" class="form-control" id="password" name="password" placeholder="Şifre">
+											<input type="text" class="form-control" id="password" name="password" placeholder="Şifre" value="<?php echo isset($formError) ? set_value("password") : " "; ?>">
 										</div>
+										<?php if (isset($formError)) { ?>
+											<small><?php echo form_error("password"); ?></small>
+										<?php } ?>
+
+										<div class="form-group">
+											<label for="address">Tekrar Şifre</label>
+											<input type="text" class="form-control" id="re-password" name="re-password" placeholder="Tekrar Şifre" value="<?php echo isset($formError) ? set_value("re-password") : " "?>">
+										</div>
+										<?php if (isset($formError)) { ?>
+											<small><?php echo form_error("re-password"); ?></small>
+										<?php } ?>
 										<button type="submit" class="btn btn-primary me-2">Kaydet</button>
 										<a href="<?php echo base_url("Users/index")?>" class="btn btn-light">İptal Et</a>
 									</form>
